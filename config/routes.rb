@@ -1,5 +1,12 @@
 Atomic::Application.routes.draw do
-  devise_for :users
+  match "/dashboard" => "dashboard#show"
+  resources :profiles
+
+  devise_for :users do
+    get "/login" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+    get "/register" => "devise/registrations#new"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
