@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  database: atomic_development
+
+test: &test
+  adapter: postgresql
+  database: atomic_test
+
+production:
+  adapter: postgresql
+  database: atomic
+
+#cucumber:
+#  <<: *test
+
