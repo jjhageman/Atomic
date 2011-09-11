@@ -1,3 +1,43 @@
-// Place all the styles related to the dashboard controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body  {
+	/*font: 87.5% Helvetica, Arial, Verdana, sans-serif;*/
+	font: normal normal 87.5% "Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+	margin: 0 auto; 
+	padding: 0;
+	color: #3F3F3F;
+	background: #CCC;
+}
+
+a { color:#0177ad; text-decoration:none; }
+a:link    { color: #0177ad }
+a:visited { color: #0177ad }
+a:hover {color: #5184b9; text-decoration:underline;}
+a:active  { color: #5184b9 }
+
+a.small {	font-size: 0.8em; }
+
+small {font-weight:normal;}
+
+#header {
+	overflow:auto; 
+	margin:0 0 15px;
+  background-color: #666;
+}
+
+#content {clear: both;overflow: auto;min-height: 400px; background-color: #FFF; width: 90%; margin: auto;}
+
+/*** Nav ***/
+#nav { overflow:auto; }
+#user-nav { padding: 0 5px 1em 0; float: right; text-align: right; width: 50%; }
+#user-nav a {color: #FFF;}
+#user-nav a:visited{color: #FFF;}
+#user-nav a:hover, ul#site-nav a:active{text-decoration:underline;}
+
+#site-nav { color: #666; font-weight: bold; }
+#site-nav a:visited{color: #000;}
+#site-nav a:hover, ul#site-nav a:active{text-decoration:underline;}
+
+ul.hmenu li {margin: 0; padding: 0;}
+ul.hmenu li {display: inline;}
+ul.hmenu li:before { content: "| "; }
+ul.hmenu li:first-child:before { content: ""; }
+

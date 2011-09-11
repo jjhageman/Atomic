@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Atomic</title>
+    <%= stylesheet_link_tag    "dashboard" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div id="nav">
+          <div id="user-nav">
+            <ul class="hmenu">
+              <%= render 'devise/menu/registration_items' %>
+              <%= render 'devise/menu/login_items' %>
+            </ul>
+          </div><!-- end #user-nav -->
+        </div><!-- end #nav -->
+      </div><!-- end #header -->
+      <div id="dash-nav">
+        <ul id="site-nav" class="hmenu">
+          <li><%= link_to_unless_current 'My Profile', dashboard_profile_path %></li>
+          <li><%= link_to_unless_current 'Questions', dashboard_questions_path %></li>
+          <li><%= link_to_unless_current 'Links', dashboard_links_path %></li>
+          <li><%= link_to_unless_current 'Display', dashboard_display_path %></li>
+          <li><%= link_to_unless_current 'Messages', dashboard_messages_path %></li>
+        </ul>
+      </div><!-- end #dash-nav -->
+      <div id="content">
+        <% flash.each do |key, msg| %>
+          <%= content_tag :p, msg, :class => "flash #{key}" %>
+        <% end %>
+
+        <%= yield %>
+      </div><!-- end #content -->
+    </div><!-- end #wrap -->
+  </body>
+</html>

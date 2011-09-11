@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
   <li>
-  <%= link_to('Edit registration', edit_user_registration_path) %>
+  <%= link_to_unless_current('My Profile', dashboard_profile_path) %>
   </li>
 <% else %>
   <li>
-  <%= link_to('Register', new_user_registration_path)  %>
+  <%= link_to_unless_current('Register', new_user_registration_path)  %>
   </li>
 <% end %>
