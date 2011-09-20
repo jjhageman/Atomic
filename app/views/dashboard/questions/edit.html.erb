@@ -1,0 +1,10 @@
+<h2>Edit Your Answers</h2>
+<%= form_for @profile, :url => dashboard_questions_path do |f| %>
+  <%= f.fields_for :question_answers do |qa_fields| %>
+    <p><strong><%= qa_fields.object.question.body %></strong></p>
+    <%= qa_fields.text_area :body %>
+  <% end %>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

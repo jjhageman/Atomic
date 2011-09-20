@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+[ "It is not enough to be abstinent with other people, you also have to be abstinent alone?",
+  "I believe intelligent design should be presented in schools alongside the theories of evolution?",
+  "You know what, evolution is a myth. Why aren't monkeys still evolving into humans?"].each do |q|
+  Question.create(body: q)
+end

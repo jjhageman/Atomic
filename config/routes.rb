@@ -4,7 +4,8 @@ Atomic::Application.routes.draw do
   match "/dashboard" => "dashboard#show"
 
   namespace :dashboard do
-    resource :profile, :questions, :links, :display, :messages
+    resource :profile, :questions, :display_settings, :messages
+    resource :links_list, :path => 'links'
   end
 
   resources :profiles

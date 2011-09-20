@@ -11,7 +11,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110908061402) do
+ActiveRecord::Schema.define(:version => 20110920074555) do
+
+  create_table "display_settings", :force => true do |t|
+    t.string   "header_font"
+    t.integer  "header_font_size"
+    t.string   "body_font"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "display_settings", ["profile_id"], :name => "index_display_settings_on_profile_id"
+
+  create_table "links_lists", :force => true do |t|
+    t.string   "twitter_url"
+    t.string   "facebook_url"
+    t.string   "tumbler_url"
+    t.string   "flickr_url"
+    t.string   "yelp_url"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "links_lists", ["profile_id"], :name => "index_links_lists_on_profile_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "first_name"
@@ -28,6 +52,22 @@ ActiveRecord::Schema.define(:version => 20110908061402) do
   end
 
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+
+  create_table "question_answers", :force => true do |t|
+    t.text     "body"
+    t.integer  "profile_id"
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "question_answers", ["profile_id", "question_id"], :name => "index_question_answers_on_profile_id_and_question_id", :unique => true
+
+  create_table "questions", :force => true do |t|
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

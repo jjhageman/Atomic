@@ -1,0 +1,31 @@
+<h2>Edit Your Profile</h2>
+<%= form_for @profile, :url => dashboard_display_settings_path do |f| %>
+  <% if @settings.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@settings.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+      <ul>
+        <% @settings.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.fields_for :display_setting do |setting_field| %>
+    <div class="field">
+      <%= setting_field.label :header_font %><br />
+      <%= setting_field.text_field :header_font %>
+    </div>
+    <div class="field">
+      <%= setting_field.label :header_font_size %><br />
+      <%= setting_field.text_field :header_font_size %>
+    </div>
+    <div class="field">
+      <%= setting_field.label :body_font %><br />
+      <%= setting_field.text_field :body_font %>
+    </div>
+  <% end %>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
