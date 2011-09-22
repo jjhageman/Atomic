@@ -1,0 +1,28 @@
+<h2>Edit Your Links</h2>
+<%= form_for @profile, :url => dashboard_links_list_path do |f| %>
+  <%= f.fields_for :links_list do |link_field| %>
+    <div class="field">
+      <%= link_field.label :twitter_url, 'Twitter' %>
+      <%= link_field.text_field :twitter_url %>
+    </div>
+    <div class="field">
+      <%= link_field.label :facebook_url, 'Facebok' %>
+      <%= link_field.text_field :facebook_url %>
+    </div>
+    <div class="field">
+      <%= link_field.label :tumblr_url, 'Tumblr' %>
+      <%= link_field.text_field :tumblr_url %>
+    </div>
+    <div class="field">
+      <%= link_field.label :flickr_url, 'Flickr' %>
+      <%= link_field.text_field :flickr_url  %>
+    </div>
+    <div class="field">
+      <%= link_field.label :yelp_url, 'Yelp' %>
+      <%= link_field.text_field :yelp_url %>
+    </div>
+  <% end %>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

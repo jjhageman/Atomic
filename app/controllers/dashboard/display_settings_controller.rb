@@ -1,7 +1,5 @@
 module Dashboard
   class DisplaySettingsController < BaseController
-    before_filter :load_settings
-
     def show
     end
 
@@ -14,12 +12,6 @@ module Dashboard
       else
         render action: 'edit'
       end
-    end
-
-    private
-
-    def load_settings
-      @settings = @profile.display_setting
     end
   end
 end

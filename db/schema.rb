@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110920074555) do
+ActiveRecord::Schema.define(:version => 20110922050727) do
 
   create_table "display_settings", :force => true do |t|
     t.string   "header_font"
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(:version => 20110920074555) do
   create_table "links_lists", :force => true do |t|
     t.string   "twitter_url"
     t.string   "facebook_url"
-    t.string   "tumbler_url"
+    t.string   "tumblr_url"
     t.string   "flickr_url"
     t.string   "yelp_url"
     t.integer  "profile_id"
@@ -49,8 +49,10 @@ ActiveRecord::Schema.define(:version => 20110920074555) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
   end
 
+  add_index "profiles", ["slug"], :name => "index_profiles_on_slug", :unique => true
   add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
 
   create_table "question_answers", :force => true do |t|

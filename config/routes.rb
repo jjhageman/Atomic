@@ -1,6 +1,12 @@
 Atomic::Application.routes.draw do
   get "home/index"
 
+  devise_for :users do
+    get "/login" => "devise/sessions#new"
+    get "/logout" => "devise/sessions#destroy"
+    get "/register" => "devise/registrations#new"
+  end
+
   match "/dashboard" => "dashboard#show"
 
   namespace :dashboard do
@@ -10,11 +16,6 @@ Atomic::Application.routes.draw do
 
   resources :profiles
 
-  devise_for :users do
-    get "/login" => "devise/sessions#new"
-    get "/logout" => "devise/sessions#destroy"
-    get "/register" => "devise/registrations#new"
-  end
-
+  match ':profile_id' => 'profiles#show'
   root :to => 'home#index'
 end

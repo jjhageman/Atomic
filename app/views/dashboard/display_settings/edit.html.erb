@@ -1,11 +1,11 @@
 <h2>Edit Your Profile</h2>
 <%= form_for @profile, :url => dashboard_display_settings_path do |f| %>
-  <% if @settings.errors.any? %>
+  <% if @profile.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@settings.errors.count, "error") %> prohibited this profile from being saved:</h2>
+      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
       <ul>
-        <% @settings.errors.full_messages.each do |msg| %>
+        <% @profile.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>

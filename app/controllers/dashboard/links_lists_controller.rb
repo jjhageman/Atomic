@@ -1,5 +1,5 @@
 module Dashboard
-  class QuestionsController < BaseController
+  class LinksListsController < BaseController
     def show
     end
 
@@ -8,7 +8,7 @@ module Dashboard
 
     def update
       if @profile.update_attributes(params[:profile])
-        redirect_to dashboard_questions_path, notice: 'The answers to your questions have been saved'
+        redirect_to dashboard_links_list_path, notice: 'Your links were successfully updated.'
       else
         render action: 'edit'
       end

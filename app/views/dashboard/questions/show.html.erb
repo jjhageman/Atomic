@@ -1,2 +1,2 @@
 <h2>Your Questions <small><%= link_to 'edit', edit_dashboard_questions_path %></small></h2>
-<%= render :partial => 'question', :collection => @questions %>
+<%= render :partial => 'question', :collection => @profile.question_answers %>

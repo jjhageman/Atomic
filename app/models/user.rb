@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_one :profile, :dependent => :destroy
-
+  accepts_nested_attributes_for :profile
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   def create_default_profile
     p=create_profile
     p.create_display_setting(:header_font => 'Arial', :header_font_size => 18, :body_font => 'Arial')
+    p.create_links_list
     p.questions = Question.limit(3).all
   end
 end
