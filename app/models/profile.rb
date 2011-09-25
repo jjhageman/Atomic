@@ -9,9 +9,16 @@ class Profile < ActiveRecord::Base
   accepts_nested_attributes_for :links_list
   belongs_to :user
   
-  validates :slug, :presence => true, :uniqueness => true, :length => 3..50,
-    :format => { :with => /^[a-z0-9]+([-_][a-z0-9]+)*$/i }`
+  validates :slug,
+    :presence => true,
+    :uniqueness => true,
+    :length => 3..50,
+    :format => { :with => /^[a-z0-9]+([-_][a-z0-9]+)*$/i }
   
+  def to_param
+    slug
+  end
+
   def full_name
     "#{first_name} #{last_name}"
   end

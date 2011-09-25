@@ -1,6 +1,11 @@
 <h2>Your Profile <small><%= link_to 'edit', edit_dashboard_profile_path %></small></h2>
 
 <p>
+<b>URL:</b>
+http:www.socialftw.com/<%= @profile.slug %>
+</p>
+
+<p>
 <b>Email:</b>
 <%= @user.email %>
 </p>
