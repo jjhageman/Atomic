@@ -14,8 +14,8 @@ Atomic::Application.routes.draw do
     resource :links_list, :path => 'links'
   end
 
-  resources :profiles
+  # resources :profiles
 
-  match ':profile_id' => 'profiles#show'
+  match ':profile_id' => 'profiles#show', as: :profile
   root :to => 'home#index'
 end

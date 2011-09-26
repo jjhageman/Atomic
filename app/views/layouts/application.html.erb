@@ -7,15 +7,23 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <ul class="hmenu">
-      <%= render 'devise/menu/registration_items' %>
-      <%= render 'devise/menu/login_items' %>
-    </ul>
-    <% flash.each do |key, msg| %>
-      <%= content_tag :p, h(msg), :class => "flash #{key}" %>
-    <% end %>
+    <div id="header">
+      <div id="nav">
+        <div class="logo">SocialFTW</div>
+        <div id="user-nav">
+          <ul class="hmenu">
+            <%= render 'devise/menu/registration_items' %>
+            <%= render 'devise/menu/login_items' %>
+          </ul>
+        </div><!-- end #user-nav -->
+      </div><!-- end #nav -->
+    </div><!-- end #header -->
+    <div id="content">
+      <% flash.each do |key, msg| %>
+        <%= content_tag :p, h(msg), :class => "flash #{key}" %>
+      <% end %>
 
-    <%= yield %>
-
+      <%= yield %>
+    </div><!-- end #content -->
   </body>
 </html>

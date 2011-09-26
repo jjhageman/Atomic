@@ -29,7 +29,7 @@
       </div><!-- end #dash-nav -->
       <div id="content">
         <% flash.each do |key, msg| %>
-          <%= content_tag :p, msg, :class => "flash #{key}" %>
+          <%= content_tag :p, h(msg), :class => "flash #{key}" %>
         <% end %>
 
         <%= yield %>

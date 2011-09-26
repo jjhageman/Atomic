@@ -2,7 +2,7 @@
 
 <p>
 <b>URL:</b>
-http:www.socialftw.com/<%= @profile.slug %>
+<%= link_to "http:www.socialftw.com/#{@profile.slug}", profile_path(@profile) %>
 </p>
 
 <p>
