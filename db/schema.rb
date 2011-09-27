@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110922050727) do
+ActiveRecord::Schema.define(:version => 20110926061803) do
 
   create_table "display_settings", :force => true do |t|
     t.string   "header_font"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(:version => 20110922050727) do
   end
 
   add_index "links_lists", ["profile_id"], :name => "index_links_lists_on_profile_id"
+
+  create_table "photos", :force => true do |t|
+    t.string   "image"
+    t.integer  "profile_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["profile_id"], :name => "index_photos_on_profile_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "first_name"

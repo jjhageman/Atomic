@@ -1,4 +1,6 @@
 class Profile < ActiveRecord::Base
+  has_many :photos, :dependent => :destroy
+  accepts_nested_attributes_for :photos
   has_many :question_answers, :dependent => :destroy
   has_many :questions, :through => :question_answers
   accepts_nested_attributes_for :question_answers,

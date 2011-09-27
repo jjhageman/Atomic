@@ -1,0 +1,7 @@
+<%= form_for [:dashboard, @profile], :url => dashboard_photos_path, :html => {:multipart => true} do |f| %>
+  <%= f.fields_for :photos, Photo.new do |photo_field| %>
+    <%= photo_field.file_field :image %>
+    <%= photo_field.hidden_field :image_cache %><br />
+  <% end %>
+  <%= f.submit %>
+<% end %>

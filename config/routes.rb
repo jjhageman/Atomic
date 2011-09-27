@@ -10,11 +10,9 @@ Atomic::Application.routes.draw do
   match "/dashboard" => "dashboard#show"
 
   namespace :dashboard do
-    resource :profile, :questions, :display_settings, :messages
+    resource :profile, :questions, :display_settings, :messages, :photos
     resource :links_list, :path => 'links'
   end
-
-  # resources :profiles
 
   match ':profile_id' => 'profiles#show', as: :profile
   root :to => 'home#index'
