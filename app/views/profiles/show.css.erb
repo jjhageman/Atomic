@@ -1,0 +1,19 @@
+.background-container.centered {
+  background-image: url(<%= asset_path @profile.main_image.image_url %>);
+}
+
+/*** Profile Box ***/
+#profile_box {
+  font-family: <%= @profile.display_setting.body_font %>, Tahoma, Helvetica, Verdana, sans-serif;
+  top: 147px;
+  background: rgba(0, 0, 0, 0.496094);
+  margin-left: -480px;
+  background-position: initial initial;
+  background-repeat: initial initial;
+  width: 403px;
+}
+#profile_box h1.name {
+  font-family: <%= @profile.display_setting.header_font %>, Tahoma, Helvetica, Verdana, sans-serif;
+  font-size: <%= @profile.display_setting.header_font_size %>px;
+  color: white;
+}

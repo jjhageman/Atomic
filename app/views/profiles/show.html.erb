@@ -1,5 +1,5 @@
-<div id="profile_box">
-  <h2><%= @profile.full_name %></h2>
+<div class="profile" id="profile_box">
+  <h1 class="name"><%= @profile.full_name %></h1>
   <ul>
     <li><b>Location</b> <%= @profile.zipcode %></li>
     <li><b>Height</b> <%= @profile.height %></li>
@@ -9,7 +9,9 @@
     <li><b>Job</b> <%= @profile.job %></li>
   </ul>
   <div id="profile_qa">
+    <%= render :partial => 'dashboard/questions/question', :collection => @profile.question_answers %>
   </div>
   <div id="profile_links">
+    <%= render :partial => @profile.links %>
   </div>
 </div>

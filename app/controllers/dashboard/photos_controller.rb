@@ -10,7 +10,7 @@ module Dashboard
       if @profile.update_attributes(params[:profile])
         redirect_to dashboard_photos_path
       else
-        render action: 'edit'
+        render action: 'show'
       end
     end
   end

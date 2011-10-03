@@ -3,6 +3,7 @@
   <head>
     <title>Atomic</title>
     <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag profile_path(@profile, "css") if @profile %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
@@ -18,6 +19,8 @@
         </div><!-- end #user-nav -->
       </div><!-- end #nav -->
     </div><!-- end #header -->
+    <div class="background-container centered" style="padding-right: 0px; width: 100%; height: 657px; background-position: 50% 30px; ">
+    </div>
     <div id="content">
       <% flash.each do |key, msg| %>
         <%= content_tag :p, h(msg), :class => "flash #{key}" %>

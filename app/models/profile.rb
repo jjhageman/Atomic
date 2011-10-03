@@ -29,6 +29,10 @@ class Profile < ActiveRecord::Base
     first_name || user.email
   end
 
+  def main_image
+    photos.first || Photo.new
+  end  
+
   private
 
   def generate_slug
